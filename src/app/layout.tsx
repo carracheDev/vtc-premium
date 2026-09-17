@@ -11,7 +11,7 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.prestige-vtc.fr";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vtc-premium-seven.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

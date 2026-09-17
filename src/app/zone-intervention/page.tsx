@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, Building2, CarFront, Check, MapPin, Plane, TrainFront } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -17,7 +18,14 @@ export const metadata = {
   ],
 };
 
-const zones = ["Paris", "Boulogne-Billancourt", "Neuilly-sur-Seine", "Levallois-Perret", "Saint-Denis", "Versailles"];
+const zones = [
+  { name: "Paris", href: "/chauffeur-prive-paris" },
+  { name: "Boulogne-Billancourt", href: "/chauffeur-prive-boulogne-billancourt" },
+  { name: "Neuilly-sur-Seine", href: "/chauffeur-prive-neuilly-sur-seine" },
+  { name: "Levallois-Perret", href: "/zone-intervention" },
+  { name: "Saint-Denis", href: "/chauffeur-prive-saint-denis" },
+  { name: "Versailles", href: "/chauffeur-prive-versailles" },
+];
 const destinations = [
   [Plane, "Aéroports", "Charles-de-Gaulle, Orly et autres destinations aéroportuaires sur réservation."],
   [TrainFront, "Gares", "Les principales gares parisiennes et franciliennes, avec prise en charge sur rendez-vous."],
@@ -91,10 +99,10 @@ export default function ZoneInterventionPage() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {zones.map((zone) => (
-              <div key={zone} className="rounded-[1.5rem] border border-black/10 bg-[var(--paper)] p-5">
-                <p className="text-lg font-medium text-black">{zone}</p>
+              <Link key={zone.name} href={zone.href} className="rounded-[1.5rem] border border-black/10 bg-[var(--paper)] p-5 transition-colors hover:border-[var(--gold)] hover:bg-white">
+                <p className="text-lg font-medium text-black">{zone.name}</p>
                 <p className="mt-2 text-sm text-black/55">Service VTC disponible sur réservation.</p>
-              </div>
+              </Link>
             ))}
           </div>
         </Container>

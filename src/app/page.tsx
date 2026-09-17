@@ -34,14 +34,14 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Prestige VTC",
-    image: "https://www.prestige-vtc.fr/og-image.svg",
+    image: "https://vtc-premium-seven.vercel.app/og-image.svg",
     description:
       "Service de chauffeur privé premium à Paris et en Île-de-France pour les transferts aéroport, déplacements professionnels et trajets sur mesure.",
     areaServed: ["Paris", "Île-de-France", "Aéroport Charles de Gaulle", "Aéroport Orly"],
     serviceType: ["Chauffeur privé", "Transfert aéroport", "Déplacements professionnels"],
     telephone: "+33 1 00 00 00 00",
     priceRange: "€€€",
-    url: "https://www.prestige-vtc.fr/",
+    url: "https://vtc-premium-seven.vercel.app/",
   };
 
   return (

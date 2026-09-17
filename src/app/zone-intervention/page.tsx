@@ -1,10 +1,21 @@
-import Link from "next/link";
 import { ArrowRight, Building2, CarFront, Check, MapPin, Plane, TrainFront } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 
-export const metadata = { title: "Zone d’intervention VTC à Paris", description: "Prestige VTC vous accompagne à Paris, en proche couronne, vers les aéroports, les gares et sur des trajets longue distance.", alternates: { canonical: "/zone-intervention" } };
+export const metadata = {
+  title: "Zone d’intervention chauffeur privé Paris et Île-de-France",
+  description:
+    "Prestige VTC vous accompagne à Paris, en proche couronne, vers les aéroports, les gares et sur les trajets longue distance en Île-de-France.",
+  alternates: { canonical: "/zone-intervention" },
+  keywords: [
+    "chauffeur privé Paris",
+    "VTC Île-de-France",
+    "chauffeur aéroport Paris",
+    "transfert gare Paris",
+    "chauffeur privé Versailles",
+  ],
+};
 
 const zones = ["Paris", "Boulogne-Billancourt", "Neuilly-sur-Seine", "Levallois-Perret", "Saint-Denis", "Versailles"];
 const destinations = [
@@ -15,5 +26,110 @@ const destinations = [
 ] as const;
 
 export default function ZoneInterventionPage() {
-  return <main className="bg-[var(--paper)]"><section className="bg-[var(--ink)] pb-20 pt-36 text-white sm:pb-28"><Container><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold-light)]">Zone d’intervention</p><h1 className="mt-6 max-w-3xl font-display text-5xl leading-[.98] sm:text-7xl">Paris &amp;<br /><em className="text-[var(--gold-light)]">Île-de-France.</em></h1><p className="mt-7 max-w-xl text-sm leading-7 text-white/65 sm:text-base">Prestige VTC vous accompagne à Paris et dans les principales communes d’Île-de-France, pour vos trajets privés comme professionnels.</p></Container></section><Section><Container className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Une couverture locale</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">Où que vous soyez,<br /><em className="text-[var(--gold)]">nous venons à vous.</em></h2></div><div className="max-w-xl text-base leading-8 text-black/60"><p>Notre service de chauffeur privé couvre Paris et sa proche couronne. Nous assurons également les transferts vers les aéroports, les gares et différentes destinations en Île-de-France sur réservation.</p><p className="mt-5">Pour un trajet spécifique, communiquez-nous votre adresse de départ et votre destination.</p></div></Container></Section><section className="bg-white py-20 sm:py-28"><Container><div className="flex flex-col justify-between gap-5 border-b border-black/10 pb-8 sm:flex-row sm:items-end"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Principales zones</p><h2 className="mt-4 font-display text-4xl sm:text-6xl">Nos destinations<br /><em className="text-[var(--gold)]">habituelles.</em></h2></div><span className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-[var(--gold)]"><MapPin size={16} aria-hidden="true" />PARIS · FRANCE</span></div><div className="mt-10 grid gap-px bg-black/10 sm:grid-cols-2 lg:grid-cols-3">{zones.map((zone, index) => <div key={zone} className="flex items-center gap-4 bg-white p-6"><span className="text-xs tracking-[0.15em] text-[var(--gold)]">0{index + 1}</span><MapPin size={17} className="text-[var(--gold)]" aria-hidden="true" /><strong className="font-display text-lg font-normal">{zone}</strong><Check size={15} className="ml-auto text-black/35" aria-hidden="true" /></div>)}</div></Container></section><Section><Container><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Transferts</p><h2 className="mt-5 font-display text-4xl sm:text-6xl">Gares, aéroports<br /><em className="text-[var(--gold)]">&amp; destinations privées.</em></h2></div><div className="mt-12 grid gap-px bg-black/10 sm:grid-cols-2 lg:grid-cols-4">{destinations.map(([Icon, title, text]) => <article key={title} className="bg-[var(--paper)] p-7"><Icon size={25} className="text-[var(--gold)]" strokeWidth={1.4} aria-hidden="true" /><h3 className="mt-12 font-display text-xl">{title}</h3><p className="mt-3 text-sm leading-6 text-black/55">{text}</p></article>)}</div></Container></Section><section className="bg-white py-20 sm:py-28"><Container className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Chauffeur privé à Paris</p><h2 className="mt-5 font-display text-4xl sm:text-6xl">Un chauffeur<br /><em className="text-[var(--gold)]">près de vous.</em></h2><p className="mt-6 max-w-xl text-sm leading-7 text-black/55">Besoin d’un VTC à Paris ou en Île-de-France ? Prestige VTC propose un service de chauffeur privé pour vos déplacements personnels, professionnels, transferts aéroport et trajets longue distance.</p></div><div><Link href="/services" className="inline-flex items-center gap-3 border-b border-[var(--gold)] pb-2 text-xs font-semibold hover:text-[var(--gold)]">Découvrir nos services <ArrowRight size={16} aria-hidden="true" /></Link></div></Container></section><section className="bg-[var(--ink)] py-20 text-center text-white sm:py-28"><Container><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Paris · Île-de-France</p><h2 className="mt-5 font-display text-4xl sm:text-6xl">Votre destination.<br /><em className="text-[var(--gold-light)]">Notre engagement.</em></h2><Button href="/contact" className="mt-8">Réserver mon trajet <ArrowRight size={15} aria-hidden="true" /></Button></Container></section></main>;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    name: "Zone d’intervention Prestige VTC",
+    description: "Service de chauffeur privé premium à Paris, en Île-de-France et vers les aéroports et gares françaises.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Paris",
+      addressRegion: "Île-de-France",
+      addressCountry: "FR",
+    },
+    areaServed: ["Paris", "Boulogne-Billancourt", "Neuilly-sur-Seine", "Levallois-Perret", "Saint-Denis", "Versailles"],
+  };
+
+  return (
+    <main className="bg-[var(--paper)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <section className="bg-[var(--ink)] pb-20 pt-36 text-white sm:pb-28">
+        <Container>
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold-light)]">Zone d’intervention</p>
+          <h1 className="mt-6 max-w-3xl font-display text-5xl leading-[.98] sm:text-7xl">
+            Paris &amp;<br />
+            <em className="text-[var(--gold-light)]">Île-de-France.</em>
+          </h1>
+          <p className="mt-7 max-w-xl text-sm leading-7 text-white/65 sm:text-base">
+            Prestige VTC vous accompagne à Paris et dans les principales communes d’Île-de-France, pour vos trajets privés comme professionnels.
+          </p>
+        </Container>
+      </section>
+
+      <Section>
+        <Container className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Une couverture locale</p>
+            <h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">
+              Où que vous soyez,<br />
+              <em className="text-[var(--gold)]">nous venons à vous.</em>
+            </h2>
+          </div>
+          <div className="max-w-xl text-base leading-8 text-black/60">
+            <p>
+              Notre service de chauffeur privé couvre Paris et sa proche couronne. Nous assurons également les transferts vers les aéroports, les gares et différentes destinations en Île-de-France sur réservation.
+            </p>
+            <p className="mt-5">Pour un trajet spécifique, communiquez-nous votre adresse de départ et votre destination.</p>
+          </div>
+        </Container>
+      </Section>
+
+      <section className="bg-white py-20 sm:py-28">
+        <Container>
+          <div className="flex flex-col justify-between gap-5 border-b border-black/10 pb-8 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Principales zones</p>
+              <h2 className="mt-4 font-display text-4xl sm:text-6xl">
+                Nos destinations<br />
+                <em className="text-[var(--gold)]">habituelles.</em>
+              </h2>
+            </div>
+            <span className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-[var(--gold)]">
+              <MapPin size={16} aria-hidden="true" />PARIS · FRANCE
+            </span>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {zones.map((zone) => (
+              <div key={zone} className="rounded-[1.5rem] border border-black/10 bg-[var(--paper)] p-5">
+                <p className="text-lg font-medium text-black">{zone}</p>
+                <p className="mt-2 text-sm text-black/55">Service VTC disponible sur réservation.</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <Section className="bg-[var(--paper)]">
+        <Container className="grid gap-10 lg:grid-cols-2">
+          {destinations.map(([Icon, title, text]) => (
+            <div key={title} className="rounded-[1.75rem] border border-black/10 bg-white p-8 shadow-[0_16px_60px_rgba(8,8,8,0.04)]">
+              <div className="flex items-center gap-3">
+                <span className="grid size-12 place-items-center rounded-full bg-[var(--paper)] text-[var(--gold)]">
+                  <Icon size={19} aria-hidden="true" />
+                </span>
+                <h3 className="text-2xl font-medium text-black">{title}</h3>
+              </div>
+              <p className="mt-5 text-base leading-7 text-black/60">{text}</p>
+              <div className="mt-6 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--gold)]">
+                <Check size={15} aria-hidden="true" />Disponible
+              </div>
+            </div>
+          ))}
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <div className="rounded-[2rem] border border-black/10 bg-white p-8 text-center shadow-[0_16px_60px_rgba(8,8,8,0.04)]">
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Demande spécifique</p>
+            <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">Besoin d&apos;un trajet hors zone habituelle ?</h2>
+            <Button href="/contact" className="mt-7">
+              Réserver mon trajet <ArrowRight size={15} aria-hidden="true" />
+            </Button>
+          </div>
+        </Container>
+      </Section>
+    </main>
+  );
 }

@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Check, Clock3, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Check, Clock3, ShieldCheck, Sparkles } from "lucide-react";
 import { CTA } from "@/components/home/CTA";
 import { Hero } from "@/components/home/Hero";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
@@ -9,16 +9,151 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 
 export const metadata = {
-  title: "Chauffeur privé à Paris",
-  description: "Prestige VTC accompagne vos transferts, déplacements professionnels et trajets sur mesure à Paris et en Île-de-France.",
+  title: "Chauffeur privé premium à Paris",
+  description:
+    "Prestige VTC propose un chauffeur privé premium à Paris et en Île-de-France pour les transferts aéroport, déplacements professionnels et trajets sur mesure.",
   alternates: { canonical: "/" },
+  keywords: [
+    "chauffeur privé Paris",
+    "VTC Paris",
+    "chauffeur privé aéroport",
+    "transfert aéroport Paris",
+    "déplacement professionnel Paris",
+  ],
 };
 
-const advantages = ["Chauffeur professionnel et ponctuel", "Véhicule confortable et soigneusement entretenu", "Réservation simple et confirmation rapide", "Service disponible sur réservation"];
+const advantages = [
+  "Chauffeur professionnel et ponctuel",
+  "Véhicule confortable et soigneusement entretenu",
+  "Réservation simple et confirmation rapide",
+  "Service disponible sur réservation",
+];
 
 export default function Home() {
-  const structuredData = { "@context": "https://schema.org", "@type": "LocalBusiness", name: "Prestige VTC", description: "Service de chauffeur privé premium à Paris et en Île-de-France.", areaServed: ["Paris", "Île-de-France"], serviceType: "Chauffeur privé" };
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Prestige VTC",
+    image: "https://www.prestige-vtc.fr/og-image.svg",
+    description:
+      "Service de chauffeur privé premium à Paris et en Île-de-France pour les transferts aéroport, déplacements professionnels et trajets sur mesure.",
+    areaServed: ["Paris", "Île-de-France", "Aéroport Charles de Gaulle", "Aéroport Orly"],
+    serviceType: ["Chauffeur privé", "Transfert aéroport", "Déplacements professionnels"],
+    telephone: "+33 1 00 00 00 00",
+    priceRange: "€€€",
+    url: "https://www.prestige-vtc.fr/",
+  };
 
-  return <main><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /><Hero /><Section className="bg-[var(--paper)]"><Container className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">L&apos;expérience Prestige</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">Plus qu&apos;un trajet.<br /><em className="text-[var(--gold)]">Une attention.</em></h2></div><div className="max-w-xl"><p className="text-base leading-8 text-black/60">Chaque déplacement est préparé dans les moindres détails. Ponctualité, discrétion et confort deviennent les bases d&apos;un service qui vous laisse le temps de vous concentrer sur l&apos;essentiel.</p><Link href="/services" className="mt-8 inline-flex items-center gap-3 border-b border-[var(--gold)] pb-2 text-xs font-semibold text-black hover:text-[var(--gold)]">Découvrir notre approche <ArrowRight size={16} aria-hidden="true" /></Link></div></Container></Section><ServicesPreview /><Section className="bg-[var(--paper)]"><Container className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-24"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Pourquoi Prestige VTC</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">La qualité dans<br /><em className="text-[var(--gold)]">chaque détail.</em></h2><p className="mt-7 max-w-lg text-base leading-8 text-black/60">Un service premium ne se résume pas à un véhicule. Il se reconnaît à l&apos;anticipation, à la présence juste et à la tranquillité d&apos;esprit offerte à chaque passager.</p><ul className="mt-8 grid gap-4">{advantages.map((advantage) => <li key={advantage} className="flex items-center gap-3 text-sm text-black/70"><span className="grid size-6 shrink-0 place-items-center rounded-full border border-[var(--gold)] text-[var(--gold)]"><Check size={13} aria-hidden="true" /></span>{advantage}</li>)}</ul></div><div className="border border-black/10 bg-white p-8 sm:p-12"><Sparkles size={27} className="text-[var(--gold)]" aria-hidden="true" /><p className="mt-16 font-display text-3xl leading-tight sm:text-4xl">Une présence discrète, un trajet parfaitement maîtrisé.</p><div className="mt-10 grid grid-cols-2 gap-4 border-t border-black/10 pt-5 text-xs text-black/55"><span><strong className="block text-2xl text-[var(--gold)]">7j/7</strong>sur réservation</span><span><strong className="block text-2xl text-[var(--gold)]">IDF</strong>zone desservie</span></div></div></Container></Section><Section className="bg-white"><Container><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Nos destinations</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">Paris comme point de départ.<br /><em className="text-[var(--gold)]">Votre destination, notre affaire.</em></h2></div><Button href="/zone-intervention" tone="dark">Voir les zones <ArrowRight size={15} aria-hidden="true" /></Button></div><div className="mt-12 grid gap-px bg-black/10 sm:grid-cols-3"><div className="bg-white p-7"><MapPin size={24} className="text-[var(--gold)]" aria-hidden="true" /><h3 className="mt-10 font-display text-xl">Paris &amp; proche couronne</h3><p className="mt-3 text-sm leading-6 text-black/55">Paris, Boulogne, Neuilly, Levallois et Saint-Denis.</p></div><div className="bg-white p-7"><Clock3 size={24} className="text-[var(--gold)]" aria-hidden="true" /><h3 className="mt-10 font-display text-xl">Aéroports &amp; gares</h3><p className="mt-3 text-sm leading-6 text-black/55">CDG, Orly et les principales gares parisiennes.</p></div><div className="bg-white p-7"><ShieldCheck size={24} className="text-[var(--gold)]" aria-hidden="true" /><h3 className="mt-10 font-display text-xl">Longue distance</h3><p className="mt-3 text-sm leading-6 text-black/55">Des trajets personnalisés au-delà de l&apos;Île-de-France.</p></div></div></Container></Section><Section className="bg-[var(--ink-soft)] text-white"><Container><div className="mx-auto max-w-xl text-center"><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Simple &amp; efficace</p><h2 className="mt-5 font-display text-4xl sm:text-6xl">Votre trajet,<br /><em className="text-[var(--gold-light)]">en trois étapes.</em></h2></div><div className="mt-14 grid gap-10 md:grid-cols-3">{[["01", "Vous demandez", "Indiquez votre trajet, votre horaire et vos besoins."], ["02", "Nous échangeons", "Nous précisons ensemble les détails de votre prise en charge."], ["03", "Vous voyagez", "Votre chauffeur vous attend à l&apos;heure convenue."]].map(([number, title, text]) => <div key={number} className="border-t border-white/15 pt-5"><span className="text-xs text-[var(--gold)]">{number}</span><h3 className="mt-8 font-display text-2xl">{title}</h3><p className="mt-3 text-sm leading-6 text-white/55">{text}</p></div>)}</div><div className="mt-16 border border-white/10 p-7 text-center text-sm text-white/60">Témoignage de démonstration pour ce projet portfolio : « Un service discret et confortable, pensé jusque dans les détails. »</div></Container></Section><CTA /></main>;
-  return <main><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} /><Hero /><Section className="bg-[var(--paper)]"><Container className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">L&apos;expérience Prestige</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">Plus qu&apos;un trajet.<br /><em className="text-[var(--gold)]">Une attention.</em></h2></div><div className="max-w-xl"><p className="text-base leading-8 text-black/60">Chaque déplacement est préparé dans les moindres détails. Ponctualité, discrétion et confort deviennent les bases d&apos;un service qui vous laisse le temps de vous concentrer sur l&apos;essentiel.</p><Link href="/services" className="mt-8 inline-flex items-center gap-3 border-b border-[var(--gold)] pb-2 text-xs font-semibold text-black hover:text-[var(--gold)]">Découvrir notre approche <ArrowRight size={16} aria-hidden="true" /></Link></div></Container></Section><ServicesPreview /><Section className="bg-[var(--paper)]"><Container className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-24"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Pourquoi Prestige VTC</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">La qualité dans<br /><em className="text-[var(--gold)]">chaque détail.</em></h2><p className="mt-7 max-w-lg text-base leading-8 text-black/60">Un service premium ne se résume pas à un véhicule. Il se reconnaît à l&apos;anticipation, à la présence juste et à la tranquillité d&apos;esprit offerte à chaque passager.</p><ul className="mt-8 grid gap-4">{advantages.map((advantage) => <li key={advantage} className="flex items-center gap-3 text-sm text-black/70"><span className="grid size-6 shrink-0 place-items-center rounded-full border border-[var(--gold)] text-[var(--gold)]"><Check size={13} aria-hidden="true" /></span>{advantage}</li>)}</ul></div><div className="relative min-h-[26rem] overflow-hidden border border-black/10 bg-white p-8 sm:p-12"><Image src="/images/chauffeur-professionnel.webp" alt="Chauffeur professionnel devant une berline haut de gamme" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)]/80 via-[var(--ink)]/15 to-transparent" /><div className="relative flex h-full flex-col justify-end text-white"><Sparkles size={27} className="text-[var(--gold)]" aria-hidden="true" /><p className="mt-4 font-display text-3xl leading-tight sm:text-4xl">Une présence discrète, un trajet parfaitement maîtrisé.</p></div></div></Container></Section><Section className="bg-white"><Container><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Nos destinations</p><h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">Paris comme point de départ.<br /><em className="text-[var(--gold)]">Votre destination, notre affaire.</em></h2></div><Button href="/zone-intervention" tone="dark">Voir les zones <ArrowRight size={15} aria-hidden="true" /></Button></div><div className="mt-12 grid gap-px bg-black/10 sm:grid-cols-3"><div className="bg-white p-7"><MapPin size={24} className="text-[var(--gold)]" aria-hidden="true" /><h3 className="mt-10 font-display text-xl">Paris &amp; proche couronne</h3><p className="mt-3 text-sm leading-6 text-black/55">Paris, Boulogne, Neuilly, Levallois et Saint-Denis.</p></div><div className="bg-white p-7"><Clock3 size={24} className="text-[var(--gold)]" aria-hidden="true" /><h3 className="mt-10 font-display text-xl">Aéroports &amp; gares</h3><p className="mt-3 text-sm leading-6 text-black/55">CDG, Orly et les principales gares parisiennes.</p></div><div className="bg-white p-7"><ShieldCheck size={24} className="text-[var(--gold)]" aria-hidden="true" /><h3 className="mt-10 font-display text-xl">Longue distance</h3><p className="mt-3 text-sm leading-6 text-black/55">Des trajets personnalisés au-delà de l&apos;Île-de-France.</p></div></div></Container></Section><Section className="bg-[var(--ink-soft)] text-white"><Container><div className="mx-auto max-w-xl text-center"><p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Simple &amp; efficace</p><h2 className="mt-5 font-display text-4xl sm:text-6xl">Votre trajet,<br /><em className="text-[var(--gold-light)]">en trois étapes.</em></h2></div><div className="mt-14 grid gap-10 md:grid-cols-3">{[["01", "Vous demandez", "Indiquez votre trajet, votre horaire et vos besoins."], ["02", "Nous échangeons", "Nous précisons ensemble les détails de votre prise en charge."], ["03", "Vous voyagez", "Votre chauffeur vous attend à l&apos;heure convenue."]].map(([number, title, text]) => <div key={number} className="border-t border-white/15 pt-5"><span className="text-xs text-[var(--gold)]">{number}</span><h3 className="mt-8 font-display text-2xl">{title}</h3><p className="mt-3 text-sm leading-6 text-white/55">{text}</p></div>)}</div><div className="mt-16 border border-white/10 p-7 text-center text-sm text-white/60">Témoignage de démonstration pour ce projet portfolio : « Un service discret et confortable, pensé jusque dans les détails. »</div></Container></Section><CTA /></main>;
+  return (
+    <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <Hero />
+
+      <Section className="bg-[var(--paper)]">
+        <Container className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">L&apos;expérience Prestige</p>
+            <h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">
+              Plus qu&apos;un trajet.<br />
+              <em className="text-[var(--gold)]">Une attention.</em>
+            </h2>
+          </div>
+
+          <div className="max-w-xl">
+            <p className="text-base leading-8 text-black/60">
+              Chaque déplacement est préparé dans les moindres détails. Ponctualité, discrétion et confort deviennent les bases d&apos;un service qui vous laisse le temps de vous concentrer sur l&apos;essentiel.
+            </p>
+            <Link href="/services" className="mt-8 inline-flex items-center gap-3 border-b border-[var(--gold)] pb-2 text-xs font-semibold text-black hover:text-[var(--gold)]">
+              Découvrir notre approche <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+        </Container>
+      </Section>
+
+      <ServicesPreview />
+
+      <Section className="bg-[var(--paper)]">
+        <Container className="grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-24">
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Pourquoi Prestige VTC</p>
+            <h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">
+              La qualité dans<br />
+              <em className="text-[var(--gold)]">chaque détail.</em>
+            </h2>
+            <p className="mt-7 max-w-lg text-base leading-8 text-black/60">
+              Un service premium ne se résume pas à un véhicule. Il se reconnaît à l&apos;anticipation, à la présence juste et à la tranquillité d&apos;esprit offerte à chaque passager.
+            </p>
+            <ul className="mt-8 grid gap-4">
+              {advantages.map((advantage) => (
+                <li key={advantage} className="flex items-center gap-3 text-sm text-black/70">
+                  <span className="grid size-6 shrink-0 place-items-center rounded-full border border-[var(--gold)] text-[var(--gold)]">
+                    <Check size={13} aria-hidden="true" />
+                  </span>
+                  {advantage}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative min-h-[26rem] overflow-hidden border border-black/10 bg-white p-8 sm:p-12">
+            <div className="absolute inset-0">
+              <Image
+                src="/images/chauffeur-professionnel.webp"
+                alt="Chauffeur professionnel devant une berline haut de gamme"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="relative z-10 max-w-xs rounded-[1.5rem] border border-white/30 bg-black/55 p-5 text-white backdrop-blur-sm">
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[var(--gold-light)]">Paris comme point de départ</p>
+              <h3 className="mt-4 text-2xl font-medium">Votre destination, notre affaire.</h3>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-[var(--ink)] text-white">
+        <Container className="grid gap-10 lg:grid-cols-[.9fr_1.1fr]">
+          <div>
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold-light)]">Réservation</p>
+            <h2 className="mt-5 font-display text-4xl leading-tight sm:text-6xl">
+              Un seul message pour<br />
+              <em className="text-[var(--gold-light)]">un trajet pensé.</em>
+            </h2>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-3">
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/4 p-5">
+              <Sparkles className="text-[var(--gold-light)]" size={18} aria-hidden="true" />
+              <p className="mt-4 text-2xl font-medium">1</p>
+              <p className="mt-2 text-sm leading-6 text-white/70">Contactez-nous</p>
+            </div>
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/4 p-5">
+              <Clock3 className="text-[var(--gold-light)]" size={18} aria-hidden="true" />
+              <p className="mt-4 text-2xl font-medium">2</p>
+              <p className="mt-2 text-sm leading-6 text-white/70">Recevez votre devis</p>
+            </div>
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/4 p-5">
+              <ShieldCheck className="text-[var(--gold-light)]" size={18} aria-hidden="true" />
+              <p className="mt-4 text-2xl font-medium">3</p>
+              <p className="mt-2 text-sm leading-6 text-white/70">Profitez du trajet</p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-[var(--paper)]">
+        <Container className="flex flex-col items-center justify-center gap-6 py-8 text-center">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--gold)]">Zones d&apos;intervention</p>
+          <h2 className="font-display text-4xl leading-tight sm:text-5xl">Paris, aéroports, gares et trajets premium</h2>
+          <Button href="/zone-intervention" tone="dark">
+            Voir les zones <ArrowRight size={15} aria-hidden="true" />
+          </Button>
+        </Container>
+      </Section>
+
+      <CTA />
+    </main>
+  );
 }

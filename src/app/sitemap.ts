@@ -7,6 +7,7 @@ const pages: MetadataRoute.Sitemap = [
   { url: `${siteUrl}/services`, priority: 0.9, changeFrequency: "weekly" },
   { url: `${siteUrl}/zone-intervention`, priority: 0.8, changeFrequency: "monthly" },
   { url: `${siteUrl}/contact`, priority: 0.9, changeFrequency: "weekly" },
+  { url: `${siteUrl}/mentions-legales`, priority: 0.3, changeFrequency: "yearly" },
   { url: `${siteUrl}/chauffeur-prive-paris`, priority: 0.9, changeFrequency: "weekly" },
   { url: `${siteUrl}/chauffeur-prive-boulogne-billancourt`, priority: 0.8, changeFrequency: "monthly" },
   { url: `${siteUrl}/chauffeur-prive-neuilly-sur-seine`, priority: 0.8, changeFrequency: "monthly" },

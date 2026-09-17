@@ -68,6 +68,20 @@ export const viewport: Viewport = {
   themeColor: "#080808",
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "TaxiService",
+  name: "Prestige VTC",
+  description: "Service de chauffeur privé premium à Paris et en Île-de-France.",
+  url: siteUrl,
+  image: `${siteUrl}/og-image.svg`,
+  telephone: "+33100000000",
+  email: "contact@prestige-vtc.fr",
+  priceRange: "€€€",
+  areaServed: ["Paris", "Boulogne-Billancourt", "Neuilly-sur-Seine", "Saint-Denis", "Versailles"],
+  serviceType: ["Transfert aéroport", "Déplacement professionnel", "Mise à disposition"],
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr" className={poppins.variable}>
@@ -81,6 +95,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <div id="contenu">{children}</div>
         <Footer />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </body>
     </html>
   );
